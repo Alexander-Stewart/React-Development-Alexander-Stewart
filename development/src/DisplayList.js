@@ -18,7 +18,7 @@ class DisplayList extends Component {
         <CardColumns>
           {this.props.list.map(item =>
             <Card key={item.artistName}>
-              <Card.Img variant="top" src={item.img} />
+              <Card.Img variant="top" src={item.img} fluid/>
               <Card.Body>
                 <Card.Title as="h3">{item.artistName}</Card.Title>
                 <Card.Subtitle>{"$" + item.cost}</Card.Subtitle>

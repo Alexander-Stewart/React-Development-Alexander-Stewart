@@ -41,14 +41,19 @@ class App extends Component {
     console.log(item)
     this.state.aggrigator.delete(item)
     this.setState({
-        aggrigator: this.state.aggrigator
+        aggrigator: this.state.aggrigator,
+        totalCost: this.state.totalCost !== 0 ? this.state.totalCost - item.cost : this.state.totalCost,
+        totalPopularity: this.state.totalPopularity !== 0 ? this.state.totalPopularity - item.popularity : this.state.totalPopularity
     })
     console.log(this.state.aggrigator)
   }
 
   render() {
     return (
-      <div>
+      <div bg="dark" variant="dark" className="bg-dark">
+      <h1 className="text-light p-3">
+        Spring Weekend Lineup Generator
+      </h1>
       <Container fluid>
         <Row>
           <Col>
