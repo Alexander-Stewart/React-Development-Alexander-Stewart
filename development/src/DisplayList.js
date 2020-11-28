@@ -17,7 +17,7 @@ class DisplayList extends Component {
       <div>
         <CardColumns>
           {this.props.list.map(item =>
-            <Card>
+            <Card key={item.artistName}>
               <Card.Img variant="top" src={item.img} />
               <Card.Body>
                 <Card.Title as="h3">{item.artistName}</Card.Title>
@@ -25,7 +25,7 @@ class DisplayList extends Component {
                 <Card.Text>
                   {item.desc}
                 </Card.Text>
-                <Button variant="primary">Add</Button>
+                <Button variant="primary" onClick={() => this.props.addAggrigator(item)}>Add</Button>
               </Card.Body>
             </Card>
           )}

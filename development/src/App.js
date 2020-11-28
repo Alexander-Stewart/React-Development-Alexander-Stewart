@@ -5,37 +5,61 @@ import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Artists from './artists.js'
 import FilterComponent from './FilterComponent.js'
+import Lineup from './Lineup.js'
 
 
 class App extends Component {
   constructor(props) {
     super(props);
 
-    this.getDunks = this.getDunks.bind(this)
+    this.addAggrigator = this.addAggrigator.bind(this)
+    this.removeAggrigator = this.removeAggrigator.bind(this)
 
     this.state = {
-      artists: Artists.artists
+      artists: Artists.artists,
+      aggrigator: new Set(),
+      totalCost: 0,
+      totalPopularity: 0
     };
   }
 
-  getDunks = () => {
-    let l = "hi"
-    console.log(l)
-    console.log(Artists.artists)
+  addAggrigator = item => {
+    console.log(item)
+    if (this.state.aggrigator.size < 6) {
+      this.setState({
+        totalCost: this.state.aggrigator.has(item) ? this.state.totalCost : this.state.totalCost + item.cost,
+        totalPopularity: this.state.aggrigator.has(item) ? this.state.totalPopularity : this.state.totalPopularity + item.popularity,
+        aggrigator: this.state.aggrigator.add(item)
+      })
+      console.log(this.state.aggrigator)
+      console.log(this.state.totalCost)
+      console.log(this.state.totalPopularity)
+    }
+  }
+
+  removeAggrigator = item => {
+    console.log(item)
+    this.state.aggrigator.delete(item)
+    this.setState({
+        aggrigator: this.state.aggrigator
+    })
+    console.log(this.state.aggrigator)
   }
 
   render() {
     return (
       <div>
-      we linking
-      {this.getDunks()}
       <Container fluid>
         <Row>
           <Col>
-            <FilterComponent list={this.state.artists}/>
+            <FilterComponent list={this.state.artists}
+                             addAggrigator={this.addAggrigator}/>
           </Col>
           <Col xs={5} md={5} xl={5}>
-            // this is where aggrigator goes
+            <Lineup removeAggrigator={this.removeAggrigator}
+                    aggrigator={this.state.aggrigator}
+                    totalCost={this.state.totalCost}
+                    totalPopularity={this.state.totalPopularity}/>
           </Col>
         </Row>
       </Container>

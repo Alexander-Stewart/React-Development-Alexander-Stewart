@@ -1,8 +1,10 @@
+import Giveon from './artists_img/giveon.jpg'
+
 export default {
     artists: [
         {
             artistName: "Giveon",
-            img: "./artists_img/giveon.jpg",
+            img: "{Giveon}",
             genre: "rnb",
             cost: 25000,
             simplePrice: "$",

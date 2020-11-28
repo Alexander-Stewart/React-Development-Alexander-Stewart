@@ -85,11 +85,11 @@ class FilterComponent extends Component {
   render() {
     return(
       <div>
-      // next steps: Use Bootstrap cards and flex to set up list pretty, create aggrigator, style
       <MyNavBar filterGenre={this.onSelectFilterGenre}
                 filterPrice={this.onSelectFilterPrice}
                 sort={this.onSortChange}/>
-      <DisplayList list={this.state.sortedList.filter(this.matchesFilters)}/>
+      <DisplayList list={this.state.sortedList.filter(this.matchesFilters)}
+                   addAggrigator={this.props.addAggrigator}/>
       </div>
     );
   }
