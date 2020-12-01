@@ -16,8 +16,12 @@ class Lineup extends Component {
 
     this.crowdApproval = this.crowdApproval.bind(this)
     this.artistsInLineup = this.artistsInLineup.bind(this)
+    this.saveLineup = this.saveLineup.bind(this)
+    this.removeSavedLineup = this.removeSavedLineup.bind(this)
 
-    this.state = {};
+    this.state = {
+      savedLineups: []
+    };
   }
 
   componentDidUpdate(prevProps) {
@@ -35,6 +39,28 @@ class Lineup extends Component {
   artistsInLineup = () => {
     console.log("called")
     return this.props.aggrigator.size
+  }
+
+  saveLineup = (lineup, cost, popularity) => {
+    console.log("Saving lineup")
+    var savingLineup = new Set(lineup)
+    console.log(lineup)
+    console.log(cost)
+    console.log(popularity)
+    var newSavedLineups = this.state.savedLineups
+    newSavedLineups.push([savingLineup, cost, popularity])
+    this.setState({
+		    savedLineups: newSavedLineups
+	  })
+  }
+
+  removeSavedLineup = (index) => {
+    console.log("removing saved lineup...")
+    var updateSavedLineups = this.state.savedLineups
+    delete updateSavedLineups[index]
+    this.setState({
+      savedLineups: updateSavedLineups
+    })
   }
 
   render() {
@@ -82,8 +108,24 @@ class Lineup extends Component {
             <Col>
               Crowd Approval: {this.crowdApproval()}%
             </Col>
+            <Col>
+              <Button variant="success" onClick={() => this.saveLineup(this.props.aggrigator, this.props.totalCost, this.props.totalPopularity)}>Save Lineup</Button>
+            </Col>
           </Row>
         </Container>
+
+        <CardColumns>
+          {this.state.savedLineups.map((item, index) =>
+          <Card key={index}>
+            <Card.Header as="h5" className="text-center">
+              Saved Lineup {index}
+            </Card.Header>
+            <div className="d-flex justify-content-around">
+              <Button variant="primary" onClick={() => this.props.openSavedLineup(item[0], item[1], item[2])}>Open</Button>
+              <Button variant="danger" onClick={() => this.removeSavedLineup(index)}>Remove</Button>
+            </div>
+          </Card>)}
+        </CardColumns>
       </div>
     );
   }

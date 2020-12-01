@@ -14,6 +14,7 @@ class App extends Component {
 
     this.addAggrigator = this.addAggrigator.bind(this)
     this.removeAggrigator = this.removeAggrigator.bind(this)
+    this.openSavedLineup = this.openSavedLineup.bind(this)
 
     this.state = {
       artists: Artists.artists,
@@ -48,6 +49,18 @@ class App extends Component {
     console.log(this.state.aggrigator)
   }
 
+  openSavedLineup = (lineup, cost, popularity) => {
+    console.log("opening saved lineup...")
+    console.log(lineup)
+    console.log(cost)
+    console.log(popularity)
+    this.setState({
+      aggrigator: new Set(lineup),
+      totalCost: cost,
+      totalPopularity: popularity
+    })
+  }
+
   render() {
     return (
       <div bg="dark" variant="dark" className="bg-dark">
@@ -64,7 +77,8 @@ class App extends Component {
             <Lineup removeAggrigator={this.removeAggrigator}
                     aggrigator={this.state.aggrigator}
                     totalCost={this.state.totalCost}
-                    totalPopularity={this.state.totalPopularity}/>
+                    totalPopularity={this.state.totalPopularity}
+                    openSavedLineup={this.openSavedLineup}/>
           </Col>
         </Row>
       </Container>

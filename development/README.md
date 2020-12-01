@@ -1,70 +1,46 @@
-# Getting Started with Create React App
+# Readme
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Organization of components
+- App.js
+  - FilterComponent
+    - MyNavBar
+    - DisplayList
+  - Lineup
 
-## Available Scripts
+### App.js
+App.js is my outer most component. This is where I hold my master artist list,
+as well as where my aggrigator is held. Any methods that update the state of
+the artist list or aggrigator are passed down to children components.
 
-In the project directory, you can run:
+### FilterComponent
+This component holds all of my filtering logic. This component accepts the list
+of artists and the aggrigator as props. Inside this component, all sorting logic
+is happening within this component. A stateful sorted list of the artists is
+contained in this component, and is passed to the DisplayList component to be
+rendered.
 
-### `npm start`
+### DisplayList
+This component handles rendering the list of sorted artists by mapping information
+found for each artist within bootstrap's Card component. Using the List mapping
+function with javascript, the cards are dynamically generated based on what
+artists are in the list.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### MyNavBar
+MyNavBar handles user filter and sorting choices. Filtering and sorting are
+broken down into dropdown menus, with each correspoding filtering function passed
+to this component through the props.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### Lineup
+The Lineup component handles displaying the selected artists the user has chosen
+to be in Spring weekend. This accepts the aggrigator as a prop, and handles
+saving lineups of artists that the user wants to come back to.
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## How data is passed down through components
+Data is passed down to child components through props, where the props can be
+accessed in the child by calling ***this.props***.
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## How the user triggers state changes
+The user can trigger state changes through either updating sorting and Filtering
+choices, or adding/removing artists from their lineup. Any of these actions will
+update the state and re-render the page.

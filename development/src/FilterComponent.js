@@ -22,6 +22,7 @@ class FilterComponent extends Component {
     this.compareCostDown = this.compareCostDown.bind(this)
   }
 
+  // event handle function to update genre filter
   onSelectFilterGenre = event => {
     console.log("genre filter activated: " + event)
     this.setState({
@@ -29,6 +30,7 @@ class FilterComponent extends Component {
 	  })
   }
 
+  // event handle function to update price filter.
   onSelectFilterPrice = event => {
     console.log("price filter activated: " + event)
     this.setState({
@@ -46,10 +48,12 @@ class FilterComponent extends Component {
   	return this.state.price === "All" || this.state.price === item.simplePrice
   }
 
+  // function to handle how to filter list of artists.
   matchesFilters = item => {
     return this.matchesFilterGenre(item) && this.matchesFilterPrice(item)
   }
 
+  // function to handle sorting, can sort up or down based on selection
   onSortChange = event => {
     console.log("sorting: " + event)
     if(event === "up") {
@@ -73,10 +77,12 @@ class FilterComponent extends Component {
     console.log(this.state.sortedList)
   }
 
+  // sorting up comparator
   compareCostUp = (a, b) => {
     return a.cost - b.cost
   }
 
+  // sorting down comparator
   compareCostDown = (a, b) => {
     return b.cost - a.cost
   }

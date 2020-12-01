@@ -21,7 +21,8 @@ class DisplayList extends Component {
               <Card.Img variant="top" src={item.img}/>
               <Card.Body>
                 <Card.Title as="h3">{item.artistName}</Card.Title>
-                <Card.Subtitle>{"$" + item.cost}</Card.Subtitle>
+                <Card.Subtitle as="h5">{"$" + item.cost}</Card.Subtitle>
+                <Card.Text as="h5">{item.genre}</Card.Text>
                 <Card.Text>
                   {item.desc}
                 </Card.Text>
