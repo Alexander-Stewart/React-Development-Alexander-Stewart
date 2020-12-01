@@ -1,10 +1,23 @@
 import Giveon from './artists_img/giveon.jpg'
+import Ariana from './artists_img/ariana.jpeg'
+import Billie from './artists_img/billie.jpg'
+import Badbunny from './artists_img/badbunny.jpeg'
+import LilBaby from  './artists_img/lilbaby.jpg'
+import Gunna from './artists_img/gunna.jpg'
+import Maggie from './artists_img/maggie.jpg'
+import Bea from './artists_img/bea.jpg'
+import Omar from './artists_img/omar.jpeg'
+import Maluma from './artists_img/maluma.jpg'
+import Morgan from './artists_img/morgan_wallen.jpg'
+import Luke from './artists_img/luke.jpg'
+
+
 
 export default {
     artists: [
         {
             artistName: "Giveon",
-            img: "{Giveon}",
+            img: Giveon,
             genre: "rnb",
             cost: 25000,
             simplePrice: "$",
@@ -14,7 +27,7 @@ export default {
         },
         {
             artistName: "Ariana Grande",
-            img: "./artists_img/",
+            img: Ariana,
             genre: "pop",
             cost: 250000,
             simplePrice: "$$$",
@@ -24,7 +37,7 @@ export default {
         },
         {
             artistName: "Billie Eilish",
-            img: "./artists_img/",
+            img: Billie,
             genre: "pop",
             cost: 250000,
             simplePrice: "$$$",
@@ -34,7 +47,7 @@ export default {
         },
         {
             artistName: "Bad Bunny",
-            img: "./artists_img/",
+            img: Badbunny,
             genre: "latin",
             cost: 200000,
             simplePrice: "$$$",
@@ -44,7 +57,7 @@ export default {
         },
         {
             artistName: "Lil Baby",
-            img: "./artists_img/",
+            img: LilBaby,
             genre: "rap",
             cost: 200000,
             simplePrice: "$$$",
@@ -54,7 +67,7 @@ export default {
         },
         {
             artistName: "Gunna",
-            img: "./artists_img/",
+            img: Gunna,
             genre: "rap",
             cost: 100000,
             simplePrice: "$",
@@ -64,7 +77,7 @@ export default {
         },
         {
             artistName: "Maggie Rogers",
-            img: "./artists_img/",
+            img: Maggie,
             genre: "alt",
             cost: 200000,
             simplePrice: "$$$",
@@ -74,7 +87,7 @@ export default {
         },
         {
             artistName: "Beabadoobee",
-            img: "./artists_img/",
+            img: Bea,
             genre: "alt",
             cost: 15000,
             simplePrice: "$",
@@ -84,7 +97,7 @@ export default {
         },
         {
             artistName: "Omar Apollo",
-            img: "./artists_img/",
+            img: Omar,
             genre: "rnb",
             cost: 20000,
             simplePrice: "$",
@@ -94,7 +107,7 @@ export default {
         },
         {
             artistName: "Maluma",
-            img: "./artists_img/",
+            img: Maluma,
             genre: "latin",
             cost: 100000,
             simplePrice: "$",
@@ -104,7 +117,7 @@ export default {
         },
         {
             artistName: "Luke Combs",
-            img: "./artists_img/",
+            img: Luke,
             genre: "country",
             cost: 150000,
             simplePrice: "$$$",
@@ -114,7 +127,7 @@ export default {
         },
         {
             artistName: "Morgan Wallen",
-            img: "./artists_img/",
+            img: Morgan,
             genre: "country",
             cost: 75000,
             simplePrice: "$",

@@ -53,7 +53,7 @@ class Lineup extends Component {
                 {item.artistName}
               </Card.Header>
               <Card.Body>
-                {item.img} fluid
+                <Card.Img src={item.img} fluid/>
               </Card.Body>
               <Card.Footer>
               <Container className="text-center">
